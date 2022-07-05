@@ -8,15 +8,9 @@
 </head>
 <body>
   <div id="app">
-    
-    <h1>String: {{name}}</h1>
-    <h1>Sum (10 + 60): {{10 + 60}}</h1>
-    <h1>Number: {{number}}</h1>
-    <h1>Method: {{ sayHello() }}</h1>
-    <h1>If statement: {{ isOk ? 'I am OK' : 'I am not Ok' }}</h1>
-    <h1>Functions: {{ string.split('').reverse().join('') }}</h1>
-
-
+    <h2>
+      <a v-bind:href="url">{{url}}</a>
+    </h2>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
   <script>
@@ -24,16 +18,8 @@
     new Vue({
       el: "#app",
       data: {
-        name: 'Vue', 
-        number: 100, 
-        isOk: false,
-        string: 'My name is Ilya'
+      url: 'http://google.com'
       },
-      methods: {
-        sayHello: function () {
-          return 'I am a function'
-        }
-      }
     })
 
   </script>
