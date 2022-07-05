@@ -8,8 +8,15 @@
 </head>
 <body>
   <div id="app">
-    <input type="text" v-on:input="changeName"/>
-    <h1>Hello {{name}}</h1>
+    
+    <h1>String: {{name}}</h1>
+    <h1>Sum (10 + 60): {{10 + 60}}</h1>
+    <h1>Number: {{number}}</h1>
+    <h1>Method: {{ sayHello() }}</h1>
+    <h1>If statement: {{ isOk ? 'I am OK' : 'I am not Ok' }}</h1>
+    <h1>Functions: {{ string.split('').reverse().join('') }}</h1>
+
+
   </div>
   <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
   <script>
@@ -17,11 +24,14 @@
     new Vue({
       el: "#app",
       data: {
-        name: 'Vue'
+        name: 'Vue', 
+        number: 100, 
+        isOk: false,
+        string: 'My name is Ilya'
       },
       methods: {
-        changeName: function (event) {
-          this.name = event.target.value
+        sayHello: function () {
+          return 'I am a function'
         }
       }
     })
