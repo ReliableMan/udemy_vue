@@ -5,57 +5,46 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Vue JS</title>
-  <style>
-   
-  </style>
+
 </head>
 <body>
   <div id="app">
-
-   <h2>Counter {{counter}} \ {{counter2}}</h2>
-   <h3>Result: {{ result() }}</h3>
-   <h3>Computed result: {{computedResult}}</h3>
-
-   <button @click="add">Add</button>
-   <button @click="sub">Sub</button>
-   <button @click="counter2++">Add counter2</button>
-
-
+    <h2>{{title}}</h2>
+    <button @click="title = 'Updated title'">Update title</button>
   </div>
+<hr>
+  <div id="app2">
+    <h2>{{title}}</h2>
+    <button @click="updateFirstTitle">Update first title</button>
+  </div>
+
   <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
   <script>
 
-    new Vue({
+var vue1 = new Vue({
       el: "#app",
       data: {
-        counter: 0,
-        counter2: 0,
-        condition: 'Less than 3'
+        title: 'Hello I am Vue'
       },
-    
       methods: {
-        add: function() {
-          this.counter++;
-        },
-        sub: function() {
-          this.counter--;
-        },
-        result: function() {
-          console.log('Result was called')
-          return this.counter > 3 ? 'More than 3' : 'Less than 3'
+        alertSomething: function() {
+          alert('I am from vue1')
         }
+      }
+    })
+console.log(vue1)
+    new Vue({
+      el: "#app2",
+      data: {
+        title: 'Hello from Vue 2'
       },
+      methods: {
+        updateFirstTitle: function(){
+          vue1.title = 'Updated from second app';
 
-      computed:{
-        computedResult: function() {
-          console.log('Computed result was called');
-          return this.counter > 3 ? 'More than 3' : 'Less than 3'
-        }
-      },
-
-      watch: {
-        counter: function(val) {
-          console.log('From watch object', val)
+          setTimeout(function(){
+            vue1.alertSomething()
+          }, 1000)
         }
       }
     })
