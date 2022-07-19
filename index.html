@@ -23,12 +23,19 @@
 <body>
   <div id="app">
 
-   <div class="circle" :style="circleClasses"></div>
-   <div class="circle" :style="[circleClasses, {'width': height + 'px'}]"></div>
-   <hr>
-   <input type="text" v-model="color">
-   <input type="text" v-model="height">
+    <template v-if="isVisible">
+        <h2>I am title</h2>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae asperiores fugit unde reiciendis quam animi, modi nam nisi laudantium voluptatum consequuntur architecto alias aliquam facilis doloribus nihil dicta assumenda quidem.</p>
+    </template>
 
+    <template v-else>
+        <h2 style="color: red">Next title</h2>
+        <p style="color: blueviolet">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Commodi id rem nulla illum, animi tempora illo non explicabo, voluptatibus consequuntur aliquam dolorem, distinctio voluptatem at blanditiis neque beatae in optio.
+        Consequatur praesentium voluptate illum deleniti architecto perspiciatis delectus odio beatae atque magni laboriosam nesciunt sint dolorum nobis soluta cupiditate ipsam, quo, culpa nisi reiciendis! Dignissimos earum iste quaerat optio quam?
+        Inventore amet deserunt expedita veniam, voluptatum magnam enim aperiam libero similique natus aliquid ipsam pariatur totam voluptas unde quas illo commodi impedit voluptatibus? Itaque obcaecati excepturi, maxime laboriosam necessitatibus quas.
+        Molestias, totam labore. Sint et totam laborum eveniet consequatur obcaecati reprehenderit molestias ullam veritatis magni aliquam minus, quasi blanditiis. Adipisci necessitatibus quod cum voluptas quisquam temporibus maiores rem fugit vitae.
+        Facere iure deserunt provident voluptatibus rem labore, nemo repudiandae magnam soluta magni velit eius quasi modi quis amet voluptatum autem reprehenderit? Reprehenderit hic nobis accusamus facilis consequatur quam non at.</p>
+    </template>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
   <script>
@@ -36,17 +43,10 @@
     new Vue({
       el: "#app",
       data: {
-        isActive: false,
-        color: 'blue',
-        height: '100'
+        isVisible: false
       },
       computed:{
-        circleClasses: function () {
-          return {
-            'background': this.color,
-            'height': this.height + 'px'
-          }
-        }
+  
          },
       methods: {
       }
