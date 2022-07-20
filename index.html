@@ -12,16 +12,20 @@
     
     <my-counter v-for="counter in 2"></my-counter>  
 
-
   </div>
+
+  <hr>
+
+  <div id="app2">
+
+    <my-counter></my-counter>  
+    
+  </div>
+
   <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
   <script>
 
-    // var dataObj = {
-    //   counter: 0
-    // }
-
-    Vue.component('my-counter', {
+    var component = {
       template: `
          <div style="border: 1px solid black;padding: 10px">
           <h2> Counter: {{ counter }}</h2>
@@ -38,12 +42,21 @@
           this.counter++
         }
       }
-    })
+    }
+
 
  new Vue({
       el: '#app',
+      components: {
+        'my-counter': component
+      }
  })
-   
+ new Vue({
+      el: '#app2',
+      components: {
+        myCounter: component
+      }
+ }) 
 
 
   </script>
